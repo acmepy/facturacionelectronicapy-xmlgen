@@ -40,7 +40,7 @@
   "dependencies": {
     "copyfiles": "^2.4.1",
     "fs": "0.0.1-security",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@types/xml2js": "^0.4.9",
