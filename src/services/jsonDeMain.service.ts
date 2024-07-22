@@ -248,7 +248,9 @@ class JSonDeMainService {
 
     //Campo que puede ser un numero = 0, hay que validar de esta forma
     if (typeof data.cliente != 'undefined' && typeof data.cliente.numero_casa != 'undefined') {
-      data.cliente.numeroCasa = data.cliente.numero_casa + '';
+      if (data.cliente.numero_casa != null) {
+        data.cliente.numeroCasa = data.cliente.numero_casa + '';
+      }
     }
     if (data.cliente?.tipo_contribuyente) {
       data.cliente.tipoContribuyente = data.cliente.tipo_contribuyente;
@@ -296,9 +298,15 @@ class JSonDeMainService {
       data.autoFactura.documentoNumero = data.autoFactura.documento_numero;
     }
 
-    if (data.autoFactura?.numero_casa) {
-      data.autoFactura.numeroCasa = data.autoFactura.numero_casa;
+    if (typeof data.autoFactura != 'undefined' && typeof data.autoFactura.numero_casa != 'undefined') {
+      if (data.autoFactura.numero_casa != null) {
+        data.autoFactura.numeroCasa = data.autoFactura.numero_casa + '';
+      }
     }
+
+    /*if (data.autoFactura?.numero_casa) {
+      data.autoFactura.numeroCasa = data.autoFactura.numero_casa;
+    }*/
 
     //Remision
     if (data.nota_credito_debito) {
@@ -1307,7 +1315,8 @@ class JSonDeMainService {
    */
   private generateDatosEspecificosPorTipoDE_FacturaElectronica(params: any, data: any, config: XmlgenConfig) {
     if (
-      constanteService.indicadoresPresencias.filter((um: any) => um.codigo === data['factura']['presencia']).length == 0
+      constanteService.indicadoresPresencias.filter((um: any) => um.codigo === +data['factura']['presencia']).length ==
+      0
     ) {
       /*throw new Error(
         "Indicador de Presencia '" +
@@ -1319,9 +1328,9 @@ class JSonDeMainService {
 
     this.json['rDE']['DE']['gDtipDE']['gCamFE'] = {
       iIndPres: data['factura']['presencia'],
-      dDesIndPres: constanteService.indicadoresPresencias.filter((ip) => ip.codigo === data['factura']['presencia'])[0][
-        'descripcion'
-      ],
+      dDesIndPres: constanteService.indicadoresPresencias.filter(
+        (ip) => ip.codigo === +data['factura']['presencia'],
+      )[0]['descripcion'],
       //dFecEmNR : data['factura']['fechaEnvio']
     };
 

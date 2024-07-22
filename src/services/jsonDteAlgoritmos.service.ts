@@ -69,7 +69,10 @@ class JSonDteAlgoritmosService {
       throw new Error('RUC debe contener dígito verificador en params.ruc');
     }
     const tipoDocumento = data['tipoDocumento'];
-    const rucEmisor = stringUtilService.leftZero(params['ruc'].split('-')[0], 8);
+
+    let rucEmisor = params['ruc'].split('-')[0];
+    rucEmisor = stringUtilService.leftZero(rucEmisor, 8);
+
     const dvEmisor = params['ruc'].split('-')[1];
     const establecimiento = stringUtilService.leftZero(data['establecimiento'], 3);
     const punto = stringUtilService.leftZero(data['punto'], 3);
@@ -91,6 +94,30 @@ class JSonDteAlgoritmosService {
       tipoEmision +
       codigoSeguridadAleatorio;
 
+    let rucEmisorParaCalculoDV = params['ruc'].split('-')[0];
+    //Si el RUC tiene letras A, B o C, esas letras hay que reemplazar con el código ASCII
+    rucEmisorParaCalculoDV = rucEmisorParaCalculoDV.replace('A', '65');
+    rucEmisorParaCalculoDV = rucEmisorParaCalculoDV.replace('B', '66');
+    rucEmisorParaCalculoDV = rucEmisorParaCalculoDV.replace('C', '67');
+    rucEmisorParaCalculoDV = rucEmisorParaCalculoDV.replace('a', '97');
+    rucEmisorParaCalculoDV = rucEmisorParaCalculoDV.replace('b', '98');
+    rucEmisorParaCalculoDV = rucEmisorParaCalculoDV.replace('c', '99');
+    rucEmisorParaCalculoDV = stringUtilService.leftZero(rucEmisorParaCalculoDV, 8);
+    const dvEmisorParaCalculoDV = params['ruc'].split('-')[1];
+
+    let cdcParaCalculoDV =
+      stringUtilService.leftZero(tipoDocumento, 2) +
+      rucEmisorParaCalculoDV +
+      dvEmisorParaCalculoDV +
+      establecimiento +
+      punto +
+      numero +
+      tipoContribuyente +
+      fechaEmision +
+      tipoEmision +
+      codigoSeguridadAleatorio;
+
+    //const digitoVerificador = this.calcularDigitoVerificador(cdcParaCalculoDV, 11);
     const digitoVerificador = this.calcularDigitoVerificador(cdc, 11);
     cdc += digitoVerificador;
     return cdc;
