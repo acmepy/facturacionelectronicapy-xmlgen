@@ -122,12 +122,12 @@ class JSonDeMainService {
       data['tipoDocumento'] == 6 ||
       data['tipoDocumento'] == 7
     ) {
-      //this.json['rDE']['DE']['gDtipDE']['gCamDEAsoc'] = jsonDteIdentificacionDocumento.generateDatosDocumentoAsociado(params, data);
       if (data['documentoAsociado']) {
         if (!Array.isArray(data['documentoAsociado'])) {
           this.json['rDE']['DE']['gCamDEAsoc'] = jsonDteIdentificacionDocumento.generateDatosDocumentoAsociado(
             params,
             data['documentoAsociado'],
+            data
           );
         } else {
           //Caso sea un array.
@@ -137,7 +137,7 @@ class JSonDeMainService {
             const dataDocumentoAsociado = data['documentoAsociado'][i];
 
             this.json['rDE']['DE']['gCamDEAsoc'].push(
-              jsonDteIdentificacionDocumento.generateDatosDocumentoAsociado(params, dataDocumentoAsociado),
+              jsonDteIdentificacionDocumento.generateDatosDocumentoAsociado(params, dataDocumentoAsociado, data)
             );
           }
         }
@@ -187,8 +187,62 @@ class JSonDeMainService {
         (data['fecha'] + '').substring(5, 7) +
         (data['fecha'] + '').substring(8, 10);
     } else {
+      this.validateCamposDelCDC(params, data);
+
       this.codigoSeguridad = stringUtilService.leftZero(data.codigoSeguridadAleatorio, 9);
       this.codigoControl = jsonDteAlgoritmos.generateCodigoControl(params, data, this.codigoSeguridad);
+    }
+  }
+
+  private validateCamposDelCDC(params: any, data: any) {
+    //Validar campos básicos para el código de control
+    if (!params.ruc) {
+      throw new Error('Debe completar Tipo de Documento en params.ruc');
+    }
+    if (!data.tipoDocumento) {
+      throw new Error('Debe completar Tipo de Documento en data.tipoDocumento');
+    }
+    if (!data.establecimiento) {
+      throw new Error('Debe completar Establecimiento de la Emisión en data.establecimiento');
+    }
+    if (!data.punto) {
+      throw new Error('Debe completar el Punto de emisión en data.punto');
+    }
+    if (!data.numero) {
+      throw new Error('Debe completar el Número de Documento en data.numero');
+    }
+    if (!data.fecha) {
+      throw new Error('Debe completar la Fecha de Emisión en data.fecha');
+    }
+
+    if (!(params.ruc.indexOf('-') >= 0)) {
+      throw new Error('El RUC del Emisor debe contener el DV en params.ruc');
+    }
+
+    let rucEmisor = params['ruc'].split('-')[0];
+    let dvEmisor = params['ruc'].split('-')[1];
+
+    if ((rucEmisor + '').length > 8) {
+      throw new Error('La parte del RUC del Emisor no puede superar los 8 caracteres');
+    }
+    if ((dvEmisor + '').length > 1) {
+      throw new Error('El DV del RUC del Emisor no puede superar 1 caracter');
+    }
+
+    if ((data.tipoDocumento + '').length > 1) {
+      throw new Error('El Tipo de Documento no puede superar 1 digito en data.tipoDocumento');
+    }
+    if ((data.establecimiento + '').length > 3) {
+      throw new Error('El Establecimiento no puede superar 3 digitos en data.establecimiento');
+    }
+    if ((data.punto + '').length > 3) {
+      throw new Error('El Punto de Emisión no puede superar 3 digitos en data.punto');
+    }
+    if ((data.numero + '').length > 7) {
+      throw new Error('El Número de Documento no puede superar 7 digitos en data.numero');
+    }
+    if ((data.fecha + '').length > 19) {
+      throw new Error('La Fecha de Emisión no puede superar los 19 caracteres en data.fecha');
     }
   }
 
@@ -298,7 +352,12 @@ class JSonDeMainService {
       data.autoFactura.documentoNumero = data.autoFactura.documento_numero;
     }
 
-    if (typeof data.autoFactura != 'undefined' && typeof data.autoFactura.numero_casa != 'undefined') {
+    if (
+      data.autoFactura != null &&
+      typeof data.autoFactura != 'undefined' &&
+      data.autoFactura.numero_casa != null &&
+      typeof data.autoFactura.numero_casa != 'undefined'
+    ) {
       if (data.autoFactura.numero_casa != null) {
         data.autoFactura.numeroCasa = data.autoFactura.numero_casa + '';
       }
@@ -353,6 +412,10 @@ class JSonDeMainService {
 
     if (data.documentoAsociado?.constancia_control) {
       data.documentoAsociado.constanciaControl = data.documentoAsociado.constancia_control;
+    }
+
+    if (data.documentoAsociado?.ruc_fusionado) {
+      data.documentoAsociado.rucFusionado = data.documentoAsociado.ruc_fusionado;
     }
 
     //Condicion entregas
@@ -1194,8 +1257,11 @@ class JSonDeMainService {
       this.json['rDE']['DE']['gDatGralOpe']['gDatRec']['dDVRec'] = (data['cliente']['ruc'].split('-')[1] + '').trim();
     }
 
-    if (!data['cliente']['contribuyente'] && data['cliente']['tipoOperacion']) {
-      //Obligatorio completar D210
+    //if (!data['cliente']['contribuyente'] && data['cliente']['tipoOperacion']) { 2024-09-03
+    if ( ! data['cliente']['contribuyente']) {
+        //Obligatorio completar D210
+
+
 
       if (data['cliente']['documentoTipo']) {
         this.json['rDE']['DE']['gDatGralOpe']['gDatRec']['iTipIDRec'] = +data['cliente']['documentoTipo'];
@@ -1210,6 +1276,8 @@ class JSonDeMainService {
       }
 
       this.json['rDE']['DE']['gDatGralOpe']['gDatRec']['dNumIDRec'] = (data['cliente']['documentoNumero'] + '').trim();
+
+
 
       if (+data['cliente']['documentoTipo'] === 5) {
         //Si es innominado completar con cero
