@@ -1445,7 +1445,7 @@ class ConstanteService {
     { codigo: 'NIC', descripcion: 'Nicaragua' },
     { codigo: 'PAN', descripcion: 'Panamá' },*/
     { codigo: 'ARG', descripcion: 'Argentina' },
-    { codigo: 'BOL', descripcion: 'Bolivia (Estado Plurinacional de)' }
+    { codigo: 'BOL', descripcion: 'Bolivia (Estado Plurinacional de)' },
     { codigo: 'BRA', descripcion: 'Brasil' },
     { codigo: 'CHL', descripcion: 'Chile' },/*
     { codigo: 'COL', descripcion: 'Colombia' },
