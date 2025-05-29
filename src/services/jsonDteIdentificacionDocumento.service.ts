@@ -23,11 +23,10 @@ class JSonDteIdentificacionDocumentoService {
         jsonResult['dCdCDERef'] = dataDocumentoAsociado['cdc'];
       }
       if (data['tipoDocumento'] == 5 || data['tipoDocumento'] == 6 || data['tipoDocumento'] == 7) {
-        if (dataDocumentoAsociado['rucFusionado'].length >= 3) {
+        if (dataDocumentoAsociado['rucFusionado'] && dataDocumentoAsociado['rucFusionado'].length >= 3) {
           jsonResult['dRucFus'] = dataDocumentoAsociado['rucFusionado'];
         }
       }
-
     }
     if (dataDocumentoAsociado['formato'] == 2) {
       //H002 = Impreso

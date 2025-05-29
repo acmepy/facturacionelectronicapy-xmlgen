@@ -34,7 +34,8 @@ class JSonDeMainService {
           partialTaxDecimals: 8,
           pygTaxDecimals: 0,
           userObjectRemove: false,
-          test: false, //Para ambiente de test se debe informar true por "config" exterior..
+          test: false,
+          sum0_000001SuffixBeforeToFixed: false,
         };
 
         defaultConfig = Object.assign(defaultConfig, config);
@@ -127,7 +128,7 @@ class JSonDeMainService {
           this.json['rDE']['DE']['gCamDEAsoc'] = jsonDteIdentificacionDocumento.generateDatosDocumentoAsociado(
             params,
             data['documentoAsociado'],
-            data
+            data,
           );
         } else {
           //Caso sea un array.
@@ -137,7 +138,7 @@ class JSonDeMainService {
             const dataDocumentoAsociado = data['documentoAsociado'][i];
 
             this.json['rDE']['DE']['gCamDEAsoc'].push(
-              jsonDteIdentificacionDocumento.generateDatosDocumentoAsociado(params, dataDocumentoAsociado, data)
+              jsonDteIdentificacionDocumento.generateDatosDocumentoAsociado(params, dataDocumentoAsociado, data),
             );
           }
         }
@@ -281,6 +282,10 @@ class JSonDeMainService {
       data.condicionAnticipo = data.condicion_anticipo;
     }
 
+    if (data.anticipo_global) {
+      data.anticipoGlobal = data.anticipo_global;
+    }
+
     if (data.condicion_tipo_cambio) {
       data.condicionTipoCambio = data.condicion_tipo_cambio;
     }
@@ -300,6 +305,28 @@ class JSonDeMainService {
       data.cliente.tipoOperacion = data.cliente.tipo_operacion;
     }
 
+    if (data.cliente?.tipoOperacion == 3) {
+      //B2G
+      //Completar los datos de la DNCP de forma predeterminada.
+      if (!data.dncp) {
+        data.dncp = {};
+        data.dncp.modalidad = '11';
+        data.dncp.entidad = '11111';
+        data.dncp.secuencia = '1111111';
+        data.dncp.año = '11';
+        let fechaContratacion = new Date();
+        fechaContratacion.setDate(fechaContratacion.getDate() - 30); //1 mes antes
+        data.dncp.fecha = fechaUtilService.convertToAAAA_MM_DD(fechaContratacion);
+      } else {
+        if (data.dncp?.ano) {
+          data.dncp.año = data.dncp.ano;
+        }
+      }
+    } else {
+      if (data.dncp?.ano) {
+        data.dncp.año = data.dncp.ano;
+      }
+    }
     //Campo que puede ser un numero = 0, hay que validar de esta forma
     if (typeof data.cliente != 'undefined' && typeof data.cliente.numero_casa != 'undefined') {
       if (data.cliente.numero_casa != null) {
@@ -520,6 +547,18 @@ class JSonDeMainService {
 
           if (item.dncp.codigo_nivel_paquete) {
             item.dncp.codigoNivelPaquete = item.dncp.codigo_nivel_paquete;
+          }
+        }
+
+        //Datos predeterminados para DNCP, si no se le pasa
+        if (data.cliente?.tipoOperacion == 3) {
+          //B2G - NT20
+          if (!item.dncp) {
+            item.dncp = {};
+            item.dncp.codigoNivelGeneral = '00000000';
+            item.dncp.codigoNivelEspecifico = '000';
+            item.dncp.codigoGtinProducto = '11111111'; //Numerico
+            item.dncp.codigoNivelPaquete = '11111111'; //Numerico
           }
         }
 
@@ -1164,7 +1203,7 @@ class JSonDeMainService {
 
       //Verificar si tiene varios correos.
       if (email.indexOf(',') > -1) {
-        //Si el Email tiene , (coma) entonces va enviar solo el primer valor, ya que la SET no acepta Comas
+        //Si el Email tiene , (coma) entonces va enviar solo el primer valor, ya que SIFEN no acepta Comas
         email = email.split(',')[0].trim();
       }
 
@@ -1258,10 +1297,8 @@ class JSonDeMainService {
     }
 
     //if (!data['cliente']['contribuyente'] && data['cliente']['tipoOperacion']) { 2024-09-03
-    if ( ! data['cliente']['contribuyente']) {
-        //Obligatorio completar D210
-
-
+    if (!data['cliente']['contribuyente']) {
+      //Obligatorio completar D210
 
       if (data['cliente']['documentoTipo']) {
         this.json['rDE']['DE']['gDatGralOpe']['gDatRec']['iTipIDRec'] = +data['cliente']['documentoTipo'];
@@ -1276,8 +1313,6 @@ class JSonDeMainService {
       }
 
       this.json['rDE']['DE']['gDatGralOpe']['gDatRec']['dNumIDRec'] = (data['cliente']['documentoNumero'] + '').trim();
-
-
 
       if (+data['cliente']['documentoTipo'] === 5) {
         //Si es innominado completar con cero
@@ -1335,7 +1370,7 @@ class JSonDeMainService {
 
       //Verificar si tiene varios correos.
       if (email.indexOf(',') > -1) {
-        //Si el Email tiene , (coma) entonces va enviar solo el primer valor, ya que la SET no acepta Comas
+        //Si el Email tiene , (coma) entonces va enviar solo el primer valor, ya que SIFEN no acepta Comas
         email = email.split(',')[0].trim();
       }
 
@@ -1429,29 +1464,22 @@ class JSonDeMainService {
    * @param options
    */
   private generateDatosEspecificosPorTipoDE_ComprasPublicas(params: any, data: any) {
-    if (!(data['dncp'] && data['dncp']['modalidad'] && data['dncp']['modalidad'].length > 0)) {
-      //throw new Error('Debe informar la modalidad de Contratación DNCP en data.dncp.modalidad');
+    if (
+      data['dncp'] &&
+      data['dncp']['modalidad'] &&
+      data['dncp']['entidad'] &&
+      data['dncp']['año'] &&
+      data['dncp']['secuencia'] &&
+      data['dncp']['fecha']
+    ) {
+      this.json['rDE']['DE']['gDtipDE']['gCamFE']['gCompPub'] = {
+        dModCont: data['dncp']['modalidad'],
+        dEntCont: data['dncp']['entidad'],
+        dAnoCont: data['dncp']['año'],
+        dSecCont: data['dncp']['secuencia'],
+        dFeCodCont: data['dncp']['fecha'],
+      };
     }
-    if (!(data['dncp'] && data['dncp']['entidad'] && data['dncp']['entidad'].length > 0)) {
-      //throw new Error('Debe informar la entidad de Contratación DNCP en data.dncp.entidad');
-    }
-    if (!(data['dncp'] && data['dncp']['año'] && data['dncp']['año'].length > 0)) {
-      //throw new Error('Debe informar la año de Contratación DNCP en data.dncp.año');
-    }
-    if (!(data['dncp'] && data['dncp']['secuencia'] && data['dncp']['secuencia'].length > 0)) {
-      //throw new Error('Debe informar la secuencia de Contratación DNCP en data.dncp.secuencia');
-    }
-    if (!(data['dncp'] && data['dncp']['fecha'] && data['dncp']['fecha'].length > 0)) {
-      //throw new Error('Debe informar la fecha de emisión de código de Contratación DNCP en data.dncp.fecha');
-    }
-
-    this.json['rDE']['DE']['gDtipDE']['gCamFE']['gCompPub'] = {
-      dModCont: data['dncp']['modalidad'],
-      dEntCont: data['dncp']['entidad'],
-      dAnoCont: data['dncp']['año'],
-      dSecCont: data['dncp']['secuencia'],
-      dFeCodCont: data['dncp']['fecha'],
-    };
   }
 
   private generateDatosEspecificosPorTipoDE_Autofactura(params: any, data: any) {

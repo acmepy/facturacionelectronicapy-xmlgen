@@ -97,7 +97,9 @@ class JSonDeMainValidateService {
       //1 Opcional, 7 Obligatorio
       if (data['tipoDocumento'] == 7) {
         if (!data['detalleTransporte']) {
-          this.errors.push('Debe especificar el detalle de tranporte en data.tranporte para el Tipo de Documento = 7');
+          this.errors.push(
+            'Debe especificar el detalle de transporte en data.transporte para el Tipo de Documento = 7',
+          );
         } else {
           this.generateDatosTransporteValidate(params, data);
         }
@@ -371,7 +373,7 @@ class JSonDeMainValidateService {
                   i +
                   '].telefono no puede contener () o []',
               );*/
-              //Finalmente no da error en la SET por esto
+              //Finalmente no da error en SIFEN por esto
             }
           }
         }
@@ -936,7 +938,7 @@ class JSonDeMainValidateService {
           /*this.errors.push(
             "El valor '" + data['cliente']['telefono'] + "' en data.cliente.telefono no puede contener () o []",
           );*/
-          //Finalmente no da error en la SET por esto
+          //Finalmente no da error en SIFEN por esto
         }
       }
     }
@@ -967,7 +969,7 @@ class JSonDeMainValidateService {
 
       //Verificar si tiene varios correos.
       if (email.indexOf(',') > -1) {
-        //Si el Email tiene , (coma) entonces va enviar solo el primer valor, ya que la SET no acepta Comas
+        //Si el Email tiene , (coma) entonces va enviar solo el primer valor, ya que SIFEN no acepta Comas
         email = email.split(',')[0].trim();
       }
 
@@ -1063,24 +1065,17 @@ class JSonDeMainValidateService {
     if (!(data['dncp'] && data['dncp']['modalidad'] && (data['dncp']['modalidad'] + '').length == 2)) {
       this.errors.push('Debe informar la modalidad de Contratación DNCP  (2 digitos) en data.dncp.modalidad');
     }
-    /*    if (!(data['dncp'] && data['dncp']['entidad'] && data['dncp']['entidad'].length > 0)) {
-      this.errors.push('Debe informar la entidad de Contratación DNCP en data.dncp.entidad');
-    }*/
-    if (
+    /*if (
       !(data['dncp'] && data['dncp']['entidad'] && +data['dncp']['entidad'] > 9999 && +data['dncp']['entidad'] < 100000)
-    ) {
+    ) {*/
+    if (!(data['dncp'] && data['dncp']['entidad'] && (data['dncp']['entidad'] + '').length == 5)) {
       this.errors.push('Debe informar la entidad de Contratación DNCP (5 digitos) en data.dncp.entidad');
     }
-    /*if (!(data['dncp'] && data['dncp']['año'] && data['dncp']['año'].length > 0)) {
-      this.errors.push('Debe informar el año de Contratación DNCP en data.dncp.año');
-    }*/
-    if (!(data['dncp'] && data['dncp']['año'] && +data['dncp']['año'] > 0 && +data['dncp']['año'] < 100)) {
+    //if (!(data['dncp'] && data['dncp']['año'] && +data['dncp']['año'] > 0 && +data['dncp']['año'] < 100)) {
+    if (!(data['dncp'] && data['dncp']['año'] && (data['dncp']['año'] + '').length == 2)) {
       this.errors.push('Debe informar el año de Contratación DNCP (2 digitos) en data.dncp.año');
     }
-    /*if (!(data['dncp'] && data['dncp']['secuencia'] && data['dncp']['secuencia'].length > 0)) {
-      this.errors.push('Debe informar la secuencia de Contratación DNCP en data.dncp.secuencia');
-    }*/
-    if (
+    /*if (
       !(
         data['dncp'] &&
         data['dncp']['secuencia'] &&
@@ -1089,8 +1084,10 @@ class JSonDeMainValidateService {
       )
     ) {
       this.errors.push('Debe informar la secuencia de Contratación DNCP (7 digitos) en data.dncp.secuencia');
+    }*/
+    if (!(data['dncp'] && data['dncp']['secuencia'] && (data['dncp']['secuencia'] + '').length == 7)) {
+      this.errors.push('Debe informar la secuencia de Contratación DNCP (7 digitos) en data.dncp.secuencia');
     }
-
     if (!(data['dncp'] && data['dncp']['fecha'] && (data['dncp']['fecha'] + '').length > 0)) {
       this.errors.push('Debe informar la fecha de emisión de código de Contratación DNCP en data.dncp.fecha');
     } else {
@@ -2984,7 +2981,7 @@ class JSonDeMainValidateService {
       if (dataDocumentoAsociado['rucFusionado']) {
         if (!(dataDocumentoAsociado['rucFusionado'] >= 3 && dataDocumentoAsociado['rucFusionado'].length <= 8)) {
           this.errors.push('El RUC fusionado debe estar entre 3 y 8 caracteres');
-        } 
+        }
       }
     }
     if (dataDocumentoAsociado['formato'] == 2) {

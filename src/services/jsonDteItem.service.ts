@@ -31,15 +31,18 @@ class JSonDteItemService {
         }
 
         if (data['cliente']['tipoOperacion'] && data['cliente']['tipoOperacion'] === 3) {
-          gCamItem['dDncpG'] = stringUtilService.leftZero(item['dncp']['codigoNivelGeneral'], 8);
-          gCamItem['dDncpE'] = item['dncp']['codigoNivelEspecifico'];
-        }
-
-        if (data['cliente']['tipoOperacion'] && data['cliente']['tipoOperacion'] === 3) {
-          if (item['dncp']['codigoGtinProducto']) {
+          if (item['dncp'] && item['dncp']['codigoNivelGeneral']) {
+            gCamItem['dDncpG'] = stringUtilService.leftZero(item['dncp']['codigoNivelGeneral'], 8);
+          }
+          if (item['dncp'] && item['dncp']['codigoNivelEspecifico']) {
+            gCamItem['dDncpE'] = item['dncp']['codigoNivelEspecifico'];
+          }
+          //}
+          //if (data['cliente']['tipoOperacion'] && data['cliente']['tipoOperacion'] === 3) {
+          if (item['dncp'] && item['dncp']['codigoGtinProducto']) {
             gCamItem['dGtin'] = item['dncp']['codigoGtinProducto'];
           }
-          if (item['dncp']['codigoNivelPaquete']) {
+          if (item['dncp'] && item['dncp']['codigoNivelPaquete']) {
             gCamItem['dGtinPq'] = item['dncp']['codigoNivelPaquete'];
           }
         }
@@ -83,11 +86,11 @@ class JSonDteItemService {
 
         //Tratamiento E719. Tiene relacion con generateDatosGeneralesInherentesOperacion
         if (data['tipoDocumento'] == 1 || data['tipoDocumento'] == 4) {
-          if (data['tipoTransaccion'] === 9) {
-            if (item['cdcAnticipo']) {
-              gCamItem['dCDCAnticipo'] = item['cdcAnticipo'];
-            }
+          //if (data['tipoTransaccion'] === 9) {
+          if (item['cdcAnticipo']) {
+            gCamItem['dCDCAnticipo'] = item['cdcAnticipo'];
           }
+          //}
         }
 
         if (data['tipoDocumento'] != 7) {
@@ -186,8 +189,13 @@ class JSonDteItemService {
     jsonResult['dPUniProSer'] = item['precioUnitario'];
 
     jsonResult['dTotBruOpeItem'] = parseFloat(jsonResult['dPUniProSer']) * parseFloat(item['cantidad']);
-
+    //console.log("dTotBruOpeItem 1", jsonResult['dTotBruOpeItem']);
+    if (config.sum0_000001SuffixBeforeToFixed == true) {
+      jsonResult['dTotBruOpeItem'] += 0.000001;
+    }
     jsonResult['dTotBruOpeItem'] = parseFloat(jsonResult['dTotBruOpeItem'].toFixed(config.decimals));
+    //console.log("dTotBruOpeItem 2", jsonResult['dTotBruOpeItem']);
+
     if (data.moneda === 'PYG') {
       jsonResult['dTotBruOpeItem'] = parseFloat(jsonResult['dTotBruOpeItem'].toFixed(config.pygDecimals));
     }
@@ -306,14 +314,18 @@ class JSonDteItemService {
       data['tipoImpuesto'] == 4 ||
       data['tipoImpuesto'] == 5
     ) {
-      const valores =
+      const precioUnitarioConDescuentoAplicado =
         parseFloat(item['precioUnitario']) -
         parseFloat(jsonResult['dDescItem'] || 0) -
         parseFloat(jsonResult['dDescGloItem'] || 0) -
         parseFloat(jsonResult['dAntPreUniIt'] || 0) -
         parseFloat(jsonResult['dAntGloPreUniIt'] || 0);
 
-      jsonResult['dTotOpeItem'] = parseFloat(valores + '') * parseFloat(item['cantidad']);
+      jsonResult['dTotOpeItem'] = parseFloat(precioUnitarioConDescuentoAplicado + '') * parseFloat(item['cantidad']);
+
+      if (config.sum0_000001SuffixBeforeToFixed == true) {
+        jsonResult['dTotOpeItem'] += 0.000001;
+      }
 
       if (jsonResult['dDescGloItem'] == 0) {
         // Cuando no hay descuento Global por item, entonces utiliza los redondeos establecidos en config, para el dTotOpeItem
@@ -424,7 +436,7 @@ class JSonDteItemService {
 
       //Redondeo inicial a 2 decimales
       if (jsonResult['dBasGravIVA']) {
-        jsonResult['dBasGravIVA'] = parseFloat(jsonResult['dBasGravIVA'].toFixed(config.partialTaxDecimals)); //Calculo intermedio, usa max decimales de la SET.
+        jsonResult['dBasGravIVA'] = parseFloat(jsonResult['dBasGravIVA'].toFixed(config.partialTaxDecimals)); //Calculo intermedio, usa max decimales de SIFEN.
       }
     }
 
@@ -444,7 +456,7 @@ class JSonDteItemService {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     if (config.test == true) {
-      //Ambiente de test de la SET
+      //Ambiente de test de SIFEN
       if (new Date().getTime() >= new Date('2023-04-21').getTime()) {
         //Esta parte debe entrar en vigor en produccion a partir de 21/05/2023
         //Calculo para E737, aparecio en la NT13
@@ -466,7 +478,7 @@ class JSonDteItemService {
 
           //Redondeo inicial a 2 decimales
           if (jsonResult['dBasExe']) {
-            jsonResult['dBasExe'] = parseFloat(jsonResult['dBasExe'].toFixed(config.partialTaxDecimals)); //Calculo intermedio, usa max decimales de la SET.
+            jsonResult['dBasExe'] = parseFloat(jsonResult['dBasExe'].toFixed(config.partialTaxDecimals)); //Calculo intermedio, usa max decimales de SIFEN.
           }
         }
       }
@@ -493,7 +505,7 @@ class JSonDteItemService {
 
         //Redondeo inicial a 2 decimales
         if (jsonResult['dBasExe']) {
-          jsonResult['dBasExe'] = parseFloat(jsonResult['dBasExe'].toFixed(config.partialTaxDecimals)); //Calculo intermedio, usa max decimales de la SET.
+          jsonResult['dBasExe'] = parseFloat(jsonResult['dBasExe'].toFixed(config.partialTaxDecimals)); //Calculo intermedio, usa max decimales de SIFEN.
         }
       }
     }
