@@ -180,7 +180,13 @@ class JSonEventoMainService {
 
     this.json['gGroupGesEve']['rGesEve']['rEve']['$'] = {};
     this.json['gGroupGesEve']['rGesEve']['rEve']['$']['Id'] = 1;
-    this.json['gGroupGesEve']['rGesEve']['rEve']['dFecFirma'] = fechaUtilService.convertToJSONFormat(new Date());
+
+    let fechaFirmaDigital = new Date();
+    if (data.fechaFirmaDigital) {
+      fechaFirmaDigital = new Date(data.fechaFirmaDigital);
+    }
+
+    this.json['gGroupGesEve']['rGesEve']['rEve']['dFecFirma'] = fechaUtilService.convertToJSONFormat(fechaFirmaDigital);
     this.json['gGroupGesEve']['rGesEve']['rEve']['dVerFor'] = params.version;
     this.json['gGroupGesEve']['rGesEve']['rEve']['gGroupTiEvt'] = {};
 
@@ -708,8 +714,10 @@ class JSonEventoMainService {
       if (!data['numeroCasa']) {
         throw new Error('Debe especificar el numero de casa en data.numeroCasa');
       } else {
-        if (!((data['numeroCasa']+"").length >= 1 && (data['numeroCasa']+"").length <= 6)) {
-          throw new Error('El Número de Casa del Cliente en data.numeroCasa debe tener una longitud entre 1 y 6 caracteres');
+        if (!((data['numeroCasa'] + '').length >= 1 && (data['numeroCasa'] + '').length <= 6)) {
+          throw new Error(
+            'El Número de Casa del Cliente en data.numeroCasa debe tener una longitud entre 1 y 6 caracteres',
+          );
         }
       }
     }
