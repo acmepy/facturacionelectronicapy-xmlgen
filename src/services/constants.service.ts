@@ -235,14 +235,14 @@ class ConstanteService {
   ];
 
   monedas = [
-    { codigo: 'AED', descripcion: 'Dirham' },
+    /*{ codigo: 'AED', descripcion: 'Dirham' },
     { codigo: 'AFN', descripcion: 'Afghani' },
     { codigo: 'ALL', descripcion: 'Lek' },
     { codigo: 'AMD', descripcion: 'Dram' },
     { codigo: 'ANG', descripcion: 'Netherlands Antillian Guilder' },
-    { codigo: 'AOA', descripcion: 'Kwanza' },
+    { codigo: 'AOA', descripcion: 'Kwanza' },*/
     { codigo: 'ARS', descripcion: 'Argentine Peso' },
-    { codigo: 'AUD', descripcion: 'Australian Dollar' },
+    /*{ codigo: 'AUD', descripcion: 'Australian Dollar' },
     { codigo: 'AWG', descripcion: 'Aruban Guilder' },
     { codigo: 'AZM', descripcion: 'Azerbaijanian Manat' },
     { codigo: 'BAM', descripcion: 'Convertible Mark' },
@@ -253,11 +253,11 @@ class ConstanteService {
     { codigo: 'BHD', descripcion: 'Bahraini Dinar' },
     { codigo: 'BIF', descripcion: 'Burundi Franc' },
     { codigo: 'BMD', descripcion: 'Bermudian Dollar (customarily: Bermuda Dollar)' },
-    { codigo: 'BND', descripcion: 'Brunei Dollar' },
+    { codigo: 'BND', descripcion: 'Brunei Dollar' },*/
     { codigo: 'BOB', descripcion: 'Boliviano' },
-    { codigo: 'BOV', descripcion: 'Mvdol' },
+   /* { codigo: 'BOV', descripcion: 'Mvdol' },*/
     { codigo: 'BRL', descripcion: 'Brazilian Real' },
-    { codigo: 'BSD', descripcion: 'Bahamian Dollar' },
+    /*{ codigo: 'BSD', descripcion: 'Bahamian Dollar' },
     { codigo: 'BTN', descripcion: 'Ngultrum' },
     { codigo: 'BWP', descripcion: 'Pula' },
     { codigo: 'BYR', descripcion: 'Belarussian Ruble' },
@@ -285,9 +285,9 @@ class ConstanteService {
     { codigo: 'EEK', descripcion: 'Kroon' },
     { codigo: 'EGP', descripcion: 'Egyptian Pound' },
     { codigo: 'ERN', descripcion: 'Nakfa' },
-    { codigo: 'ETB', descripcion: 'Ethopian Birr' },
+    { codigo: 'ETB', descripcion: 'Ethopian Birr' },*/
     { codigo: 'EUR', descripcion: 'Euro' },
-    { codigo: 'FJD', descripcion: 'Fiji Dollar' },
+    /*{ codigo: 'FJD', descripcion: 'Fiji Dollar' },
     { codigo: 'FKP', descripcion: 'Falkland Islands Pound' },
     { codigo: 'GBP', descripcion: 'Pound Sterling' },
     { codigo: 'GEL', descripcion: 'Lari' },
@@ -361,9 +361,9 @@ class ConstanteService {
     { codigo: 'PGK', descripcion: 'Kina' },
     { codigo: 'PHP', descripcion: 'Philippine Peso' },
     { codigo: 'PKR', descripcion: 'Pakistan Rupee' },
-    { codigo: 'PLN', descripcion: 'Zloty' },
+    { codigo: 'PLN', descripcion: 'Zloty' },*/
     { codigo: 'PYG', descripcion: 'Guarani' },
-    { codigo: 'QAR', descripcion: 'Qatari Rial' },
+    /*{ codigo: 'QAR', descripcion: 'Qatari Rial' },
     { codigo: 'RON', descripcion: 'Romanian Leu' },
     { codigo: 'ROL', descripcion: 'Leu' },
     { codigo: 'RUB', descripcion: 'Russian Ruble' },
@@ -400,11 +400,11 @@ class ConstanteService {
     { codigo: 'TWD', descripcion: 'New Taiwan Dollar' },
     { codigo: 'TZS', descripcion: 'Tanzanian Shilling' },
     { codigo: 'UAH', descripcion: 'Hryvnia' },
-    { codigo: 'UGX', descripcion: 'Uganda Shilling' },
+    { codigo: 'UGX', descripcion: 'Uganda Shilling' },*/
     { codigo: 'USD', descripcion: 'US Dollar' },
-    { codigo: 'USN', descripcion: 'US Dollar(Next day)' },
+    /*{ codigo: 'USN', descripcion: 'US Dollar(Next day)' },*/
     { codigo: 'UYU', descripcion: 'Peso Uruguayo' },
-    { codigo: 'UYI', descripcion: 'Uruguay Peso en Unidades Indexadas(UI)' },
+    /*{ codigo: 'UYI', descripcion: 'Uruguay Peso en Unidades Indexadas(UI)' },
     { codigo: 'UYW', descripcion: 'Unidad Previsional' },
     { codigo: 'UZS', descripcion: 'Uzbekistan Sum' },
     { codigo: 'VEB', descripcion: 'Bolivar' },
@@ -434,7 +434,7 @@ class ConstanteService {
     { codigo: 'ZWL', descripcion: 'Zimbabwe Dollar' },
     { codigo: 'ZAR', descripcion: 'Rand' },
     { codigo: 'ZMK', descripcion: 'Kwacha' },
-    { codigo: 'ZWD', descripcion: 'Zimbabwe Dollar' },
+    { codigo: 'ZWD', descripcion: 'Zimbabwe Dollar' },*/
   ];
 
   globalPorItem = [
@@ -1415,7 +1415,7 @@ class ConstanteService {
   ];
 
   paises = [
-    { codigo: 'MKD', descripcion: 'Macedonia del Norte' },
+    /*{ codigo: 'MKD', descripcion: 'Macedonia del Norte' },
     { codigo: 'TWN', descripcion: 'Taiwán (Provincia de China)' },
     { codigo: 'DZA', descripcion: 'Argelia' },
     { codigo: 'EGY', descripcion: 'Egipto' },
@@ -1512,28 +1512,28 @@ class ConstanteService {
     { codigo: 'HND', descripcion: 'Honduras' },
     { codigo: 'MEX', descripcion: 'México' },
     { codigo: 'NIC', descripcion: 'Nicaragua' },
-    { codigo: 'PAN', descripcion: 'Panamá' },
+    { codigo: 'PAN', descripcion: 'Panamá' },*/
     { codigo: 'ARG', descripcion: 'Argentina' },
     { codigo: 'BOL', descripcion: 'Bolivia (Estado Plurinacional de)' },
     { codigo: 'BRA', descripcion: 'Brasil' },
-    { codigo: 'CHL', descripcion: 'Chile' },
+    /*{ codigo: 'CHL', descripcion: 'Chile' },
     { codigo: 'COL', descripcion: 'Colombia' },
     { codigo: 'ECU', descripcion: 'Ecuador' },
     { codigo: 'FLK', descripcion: 'Islas Malvinas (Falkland)' },
     { codigo: 'GUF', descripcion: 'Guayana Francesa' },
-    { codigo: 'GUY', descripcion: 'Guyana' },
+    { codigo: 'GUY', descripcion: 'Guyana' },*/
     { codigo: 'PRY', descripcion: 'Paraguay' },
-    { codigo: 'PER', descripcion: 'Perú' },
+    /*{ codigo: 'PER', descripcion: 'Perú' },
     { codigo: 'SGS', descripcion: 'Georgia del Sur y las Islas Sandwich del Sur' },
-    { codigo: 'SUR', descripcion: 'Suriname' },
+    { codigo: 'SUR', descripcion: 'Suriname' },*/
     { codigo: 'URY', descripcion: 'Uruguay' },
-    { codigo: 'VEN', descripcion: 'Venezuela (República Bolivariana de)' },
+    /*{ codigo: 'VEN', descripcion: 'Venezuela (República Bolivariana de)' },
     { codigo: 'BMU', descripcion: 'Bermuda' },
     { codigo: 'CAN', descripcion: 'Canadá' },
     { codigo: 'GRL', descripcion: 'Groenlandia' },
-    { codigo: 'SPM', descripcion: 'Saint Pierre y Miquelon' },
+    { codigo: 'SPM', descripcion: 'Saint Pierre y Miquelon' },*/
     { codigo: 'USA', descripcion: 'Estados Unidos de América' },
-    { codigo: 'ATA', descripcion: 'Antártida' },
+    /*{ codigo: 'ATA', descripcion: 'Antártida' },
     { codigo: 'KAZ', descripcion: 'Kazajstán' },
     { codigo: 'KGZ', descripcion: 'Kirguistán' },
     { codigo: 'TJK', descripcion: 'Tayikistán' },
@@ -1664,7 +1664,7 @@ class ConstanteService {
     { codigo: 'TON', descripcion: 'Tonga' },
     { codigo: 'TUV', descripcion: 'Tuvalu' },
     { codigo: 'WLF', descripcion: 'Islas Wallis y Futuna' },
-    { codigo: 'NN', descripcion: 'NO EXISTE' },
+    { codigo: 'NN', descripcion: 'NO EXISTE' },*/
   ];
 
   ciudades = [
@@ -5961,7 +5961,7 @@ class ConstanteService {
     { codigo: 5872, descripcion: 'TACUARINDY', distrito: 141 },
     { codigo: 5873, descripcion: 'ÑANDUA', distrito: 141 },
     { codigo: 5874, descripcion: 'ÑUATI GUAZU', distrito: 141 },
-    { codigo: 3298, descripcion: 'PUERTO STAMATO', distrito: 142 },
+    /*{ codigo: 3298, descripcion: 'PUERTO STAMATO', distrito: 142 },
     { codigo: 3299, descripcion: 'PUERTO TACURUPUCU', distrito: 142 },
     { codigo: 3300, descripcion: 'PUERTO TRES TIMBO', distrito: 142 },
     { codigo: 3301, descripcion: 'RANCHO POTRERO', distrito: 142 },
@@ -6024,8 +6024,8 @@ class ConstanteService {
     { codigo: 5875, descripcion: 'FELIX DE AZARA', distrito: 142 },
     { codigo: 5876, descripcion: 'INDARTE CUE', distrito: 142 },
     { codigo: 5877, descripcion: 'KILOMETRO 3', distrito: 142 },
-    { codigo: 5878, descripcion: 'MISION VERBO DIVINO', distrito: 142 },
-    { codigo: 3315, descripcion: 'DOMINGO MARTINEZ DE IRALA', distrito: 143 },
+    { codigo: 5878, descripcion: 'MISION VERBO DIVINO', distrito: 142 },*/
+    /*{ codigo: 3315, descripcion: 'DOMINGO MARTINEZ DE IRALA', distrito: 143 },
     { codigo: 3316, descripcion: 'ANGELITO CUE', distrito: 143 },
     { codigo: 3317, descripcion: 'ARROYO GUAYAQUI', distrito: 143 },
     { codigo: 3318, descripcion: 'ASERRADERO YTUTI', distrito: 143 },
@@ -6080,8 +6080,8 @@ class ConstanteService {
     { codigo: 3367, descripcion: 'TACUA PENDE', distrito: 143 },
     { codigo: 3368, descripcion: 'TOMAS CUE (INDIGENA)', distrito: 143 },
     { codigo: 3369, descripcion: 'VILLA SAN FRANCISCO', distrito: 143 },
-    { codigo: 3370, descripcion: 'YBAROTY', distrito: 143 },
-    { codigo: 3371, descripcion: 'ÑACUNDAY', distrito: 144 },
+    { codigo: 3370, descripcion: 'YBAROTY', distrito: 143 },*/
+    /*{ codigo: 3371, descripcion: 'ÑACUNDAY', distrito: 144 },
     { codigo: 3372, descripcion: 'ISLA PARANAMBU', distrito: 144 },
     { codigo: 3373, descripcion: 'ITAIPYTE', distrito: 144 },
     { codigo: 3374, descripcion: 'LOMA VALENTINA', distrito: 144 },
@@ -6347,7 +6347,7 @@ class ConstanteService {
     { codigo: 6617, descripcion: 'RAUL PEÑA  MCAL ESTIGARRIBIA', distrito: 273 },
     { codigo: 6618, descripcion: 'RAUL PEÑA LINEA SAN PABLO', distrito: 273 },
     { codigo: 6619, descripcion: 'RAUL PEÑA LINEA PRIMERO DE MARZO', distrito: 273 },
-    { codigo: 6620, descripcion: 'RAUL PEÑA', distrito: 273 },
+    { codigo: 6620, descripcion: 'RAUL PEÑA', distrito: 273 },*/
     { codigo: 3558, descripcion: 'AREGUA', distrito: 152 },
     { codigo: 3559, descripcion: 'AREGUA (MUNICIPIO)', distrito: 152 },
     { codigo: 3560, descripcion: 'CAACUPE MI', distrito: 152 },
@@ -6707,7 +6707,7 @@ class ConstanteService {
     { codigo: 5459, descripcion: 'POTRERO VILLALBA 1A.', distrito: 173 },
     { codigo: 5460, descripcion: 'POTRERO VILLALBA 2A.', distrito: 173 },
     { codigo: 5461, descripcion: 'TACURUTY', distrito: 173 },
-    { codigo: 5462, descripcion: 'DESMOCHADOS', distrito: 174 },
+    /*{ codigo: 5462, descripcion: 'DESMOCHADOS', distrito: 174 },
     { codigo: 5463, descripcion: 'CAPILLITA', distrito: 174 },
     { codigo: 5464, descripcion: "COSTA PO'I", distrito: 174 },
     { codigo: 5465, descripcion: 'DESMOCHADO (MUNICIPIO)', distrito: 174 },
@@ -6741,7 +6741,7 @@ class ConstanteService {
     { codigo: 5494, descripcion: 'BOGARIN CUE', distrito: 176 },
     { codigo: 5495, descripcion: 'ESTANCIA CURUPAYTY', distrito: 176 },
     { codigo: 5789, descripcion: 'HUMAITA (MUNICIPIO)', distrito: 176 },
-    { codigo: 5790, descripcion: 'TACURUTY', distrito: 176 },
+    { codigo: 5790, descripcion: 'TACURUTY', distrito: 176 },*/
     { codigo: 4102, descripcion: 'ISLA UMBU', distrito: 177 },
     { codigo: 4103, descripcion: 'BOQUERON', distrito: 177 },
     { codigo: 4104, descripcion: 'CAMBA CUA', distrito: 177 },
@@ -6754,7 +6754,7 @@ class ConstanteService {
     { codigo: 4111, descripcion: 'TACURU PYTA', distrito: 177 },
     { codigo: 4112, descripcion: 'VALLE POI', distrito: 177 },
     { codigo: 5791, descripcion: 'COSTA PUCU', distrito: 177 },
-    { codigo: 4113, descripcion: 'LAURELES', distrito: 178 },
+   /* { codigo: 4113, descripcion: 'LAURELES', distrito: 178 },
     { codigo: 4114, descripcion: 'APIPE', distrito: 178 },
     { codigo: 4115, descripcion: 'CAAROGUE', distrito: 178 },
     { codigo: 4116, descripcion: 'CASTILLO CUE', distrito: 178 },
@@ -6772,13 +6772,13 @@ class ConstanteService {
     { codigo: 4128, descripcion: 'POTRERO POI', distrito: 178 },
     { codigo: 4129, descripcion: 'SAN ANTONIO', distrito: 178 },
     { codigo: 4130, descripcion: 'YATAITY', distrito: 178 },
-    { codigo: 4131, descripcion: 'ÑEEMBUCU MI', distrito: 178 },
+    { codigo: 4131, descripcion: 'ÑEEMBUCU MI', distrito: 178 },*/
     { codigo: 4132, descripcion: 'PASO DE PATRIA', distrito: 179 },
     { codigo: 4133, descripcion: 'COSTA PARANA', distrito: 179 },
     { codigo: 4134, descripcion: 'ITA PIRU', distrito: 179 },
     { codigo: 4135, descripcion: 'PASO CANOA', distrito: 179 },
     { codigo: 4136, descripcion: 'PASO DE PATRIA (MUNICIPIO)', distrito: 179 },
-    { codigo: 4137, descripcion: 'MAYOR J.D.MARTINEZ', distrito: 180 },
+    /*{ codigo: 4137, descripcion: 'MAYOR J.D.MARTINEZ', distrito: 180 },
     { codigo: 4138, descripcion: '1A.CIA.(CABRERA CUE)', distrito: 180 },
     { codigo: 4139, descripcion: 'ALARCON', distrito: 180 },
     { codigo: 4140, descripcion: 'CURUZU CUATIA GUAZU', distrito: 180 },
@@ -6789,7 +6789,7 @@ class ConstanteService {
     { codigo: 4145, descripcion: 'ISLA ROY', distrito: 180 },
     { codigo: 4146, descripcion: 'LOMA I', distrito: 180 },
     { codigo: 4147, descripcion: 'MAYOR MARTINEZ (MUNICIPIO)', distrito: 180 },
-    { codigo: 4148, descripcion: 'YATAITY', distrito: 180 },
+    { codigo: 4148, descripcion: 'YATAITY', distrito: 180 },*/
     { codigo: 4149, descripcion: 'SAN JUAN DE ÑEEMBUCU', distrito: 181 },
     { codigo: 4150, descripcion: 'AGUIRRE', distrito: 181 },
     { codigo: 4151, descripcion: 'ALAMBRADO POI', distrito: 181 },
@@ -6837,7 +6837,7 @@ class ConstanteService {
     { codigo: 4193, descripcion: 'PUESTO ÑU PYAJHU', distrito: 181 },
     { codigo: 4194, descripcion: 'PUESTO SAN JOSE', distrito: 181 },
     { codigo: 4195, descripcion: 'SAN JUAN ÑEEMBUCU (MUNICIPIO)', distrito: 181 },
-    { codigo: 4196, descripcion: 'TACUARAS', distrito: 182 },
+    /*{ codigo: 4196, descripcion: 'TACUARAS', distrito: 182 },
     { codigo: 4197, descripcion: 'BANCO CARRIZAL', distrito: 182 },
     { codigo: 4198, descripcion: 'CAMPO MARTINEZ', distrito: 182 },
     { codigo: 4199, descripcion: 'ESTACION CARLOS CUE', distrito: 182 },
@@ -6877,7 +6877,7 @@ class ConstanteService {
     { codigo: 5479, descripcion: 'LOMA GUAZU', distrito: 203 },
     { codigo: 5480, descripcion: 'LOMA 1', distrito: 203 },
     { codigo: 5481, descripcion: 'PUESTO TORRES', distrito: 203 },
-    { codigo: 5482, descripcion: 'YUQUERI', distrito: 203 },
+    { codigo: 5482, descripcion: 'YUQUERI', distrito: 203 },*/
     { codigo: 4217, descripcion: 'VILLA FRANCA', distrito: 205 },
     { codigo: 4218, descripcion: 'BANCO PARAGUAY', distrito: 205 },
     { codigo: 4219, descripcion: 'BANCO PIRAY', distrito: 205 },
@@ -6903,7 +6903,7 @@ class ConstanteService {
     { codigo: 5792, descripcion: 'ISLA REAL', distrito: 205 },
     { codigo: 5793, descripcion: 'PUERTO TARUMA', distrito: 205 },
     { codigo: 5794, descripcion: 'SEBASTIAN GABOTO', distrito: 205 },
-    { codigo: 4596, descripcion: 'CARANDAYTY', distrito: 230 },
+    /*{ codigo: 4596, descripcion: 'CARANDAYTY', distrito: 230 },*/
     { codigo: 4597, descripcion: 'TENIENTE SANCHEZ', distrito: 231 },
     { codigo: 2306, descripcion: 'COL.SAN VICENTE', distrito: 185 },
     { codigo: 2307, descripcion: 'COL.VICTORIA GUAZU', distrito: 185 },
@@ -7080,7 +7080,7 @@ class ConstanteService {
     { codigo: 5800, descripcion: 'CAFETAL PARACANUSE', distrito: 185 },
     { codigo: 6315, descripcion: 'COL.VICE PTE.SANCHEZ', distrito: 185 },
     { codigo: 6316, descripcion: 'CUMBRE', distrito: 185 },
-    { codigo: 2402, descripcion: 'BELLA VISTA', distrito: 186 },
+    /*{ codigo: 2402, descripcion: 'BELLA VISTA', distrito: 186 },
     { codigo: 2403, descripcion: 'ARROYO CAA', distrito: 186 },
     { codigo: 2404, descripcion: 'ARROYO LEON', distrito: 186 },
     { codigo: 2405, descripcion: 'ARROYO YBYGUY', distrito: 186 },
@@ -7325,7 +7325,7 @@ class ConstanteService {
     { codigo: 6636, descripcion: "Y'AMBUE", distrito: 279 },
     { codigo: 6637, descripcion: 'FORTUNA', distrito: 279 },
     { codigo: 6638, descripcion: 'COLONIA SAN MIGUEL', distrito: 279 },
-    { codigo: 6639, descripcion: 'CALLEJON SANTA MARIA', distrito: 279 },
+    { codigo: 6639, descripcion: 'CALLEJON SANTA MARIA', distrito: 279 },*/
     { codigo: 3609, descripcion: 'VILLA HAYES', distrito: 188 },
     { codigo: 3610, descripcion: '14 DE MAYO', distrito: 188 },
     { codigo: 3611, descripcion: '25 LEGUAS', distrito: 188 },
@@ -7497,7 +7497,7 @@ class ConstanteService {
     { codigo: 5765, descripcion: 'CIERVO', distrito: 189 },
     { codigo: 5766, descripcion: 'SAN JUAN', distrito: 189 },
     { codigo: 5767, descripcion: 'VILLA REY', distrito: 189 },
-    { codigo: 3864, descripcion: 'PTO.PINAZCO', distrito: 190 },
+    /*{ codigo: 3864, descripcion: 'PTO.PINAZCO', distrito: 190 },
     { codigo: 3865, descripcion: 'BELLA VISTA', distrito: 190 },
     { codigo: 3866, descripcion: 'BRETONA', distrito: 190 },
     { codigo: 3867, descripcion: 'ESPERANZA', distrito: 190 },
@@ -7512,7 +7512,7 @@ class ConstanteService {
     { codigo: 5501, descripcion: 'PUERTO SAN JUAN', distrito: 190 },
     { codigo: 5502, descripcion: 'SAN JOSE', distrito: 190 },
     { codigo: 5503, descripcion: 'TOLDO', distrito: 190 },
-    { codigo: 5504, descripcion: 'VISTA ALEGRE', distrito: 190 },
+    { codigo: 5504, descripcion: 'VISTA ALEGRE', distrito: 190 },*/
     { codigo: 5505, descripcion: 'NANAWA', distrito: 191 },
     { codigo: 3769, descripcion: 'POZO COLORADO', distrito: 206 },
     { codigo: 3770, descripcion: '190', distrito: 206 },
@@ -7614,7 +7614,7 @@ class ConstanteService {
     { codigo: 5770, descripcion: 'CENTRAL', distrito: 206 },
     { codigo: 5771, descripcion: 'CUNU-U', distrito: 206 },
     { codigo: 4608, descripcion: 'JOSE FALCON', distrito: 242 },
-    { codigo: 6640, descripcion: 'LA PIEDAD 25 LEGUAS', distrito: 261 },
+    /*{ codigo: 6640, descripcion: 'LA PIEDAD 25 LEGUAS', distrito: 261 },
     { codigo: 6641, descripcion: 'ROSA MISTICA', distrito: 261 },
     { codigo: 6642, descripcion: 'CRUCE PIONEROS SUB-URBANO', distrito: 261 },
     { codigo: 6643, descripcion: 'LOLITA SUB-URBANO', distrito: 261 },
@@ -8433,13 +8433,13 @@ class ConstanteService {
     { codigo: 6791, descripcion: 'PUERTO ADELA', distrito: 284 },
     { codigo: 6792, descripcion: 'IBEL', distrito: 284 },
     { codigo: 6793, descripcion: 'COM INDIG TEKOHA POTY VERA', distrito: 284 },
-    { codigo: 6438, descripcion: 'LAUREL', distrito: 289 },
+    { codigo: 6438, descripcion: 'LAUREL', distrito: 289 },*/
   ];
 
   distritos = [
     { codigo: 1, descripcion: 'ASUNCION (DISTRITO)', departamento: 1 },
     { codigo: 2, descripcion: 'CONCEPCION (MUNICIPIO)', departamento: 2 },
-    { codigo: 3, descripcion: 'SAN LAZARO', departamento: 2 },
+    /*{ codigo: 3, descripcion: 'SAN LAZARO', departamento: 2 },
     { codigo: 4, descripcion: 'SAN CARLOS', departamento: 2 },
     { codigo: 5, descripcion: 'BELEN', departamento: 2 },
     { codigo: 6, descripcion: 'LORETO', departamento: 2 },
@@ -8452,9 +8452,9 @@ class ConstanteService {
     { codigo: 280, descripcion: 'PASO BARRETO (MUNICIPIO)', departamento: 2 },
     { codigo: 281, descripcion: 'SAN ALFREDO (MUNICIPIO)', departamento: 2 },
     { codigo: 282, descripcion: 'AZOTEY (MUNICIPIO)', departamento: 2 },
-    { codigo: 288, descripcion: 'PASO HORQUETA', departamento: 2 },
+    { codigo: 288, descripcion: 'PASO HORQUETA', departamento: 2 },*/
     { codigo: 10, descripcion: 'SAN PEDRO DE YCUAMANDYYU', departamento: 3 },
-    { codigo: 11, descripcion: 'ANTEQUERA', departamento: 3 },
+    /*{ codigo: 11, descripcion: 'ANTEQUERA', departamento: 3 },
     { codigo: 12, descripcion: 'GRAL. E.AQUINO', departamento: 3 },
     { codigo: 13, descripcion: 'ITACURUBI DEL ROSARIO', departamento: 3 },
     { codigo: 14, descripcion: 'SAN ESTANISLAO (SANTANI)', departamento: 3 },
@@ -8474,7 +8474,7 @@ class ConstanteService {
     { codigo: 245, descripcion: 'YRYBUCUA', departamento: 3 },
     { codigo: 263, descripcion: 'SANTA ROSA DEL AGUARAY', departamento: 3 },
     { codigo: 268, descripcion: 'LIBERACIÓN', departamento: 3 },
-    { codigo: 285, descripcion: 'SAN VICENTE PANCHOLO', departamento: 3 },
+    { codigo: 285, descripcion: 'SAN VICENTE PANCHOLO', departamento: 3 },*/
     { codigo: 26, descripcion: 'CAACUPE', departamento: 4 },
     { codigo: 27, descripcion: 'ALTOS', departamento: 4 },
     { codigo: 28, descripcion: 'ARROYOS Y ESTEROS', departamento: 4 },
@@ -8607,7 +8607,7 @@ class ConstanteService {
     { codigo: 139, descripcion: 'YBYTYMI', departamento: 10 },
     { codigo: 140, descripcion: 'TEBICUARY MI', departamento: 10 },
     { codigo: 141, descripcion: 'YAGUARON', departamento: 10 },
-    { codigo: 142, descripcion: 'HERNANDARIAS', departamento: 11 },
+    /*{ codigo: 142, descripcion: 'HERNANDARIAS', departamento: 11 },
     { codigo: 143, descripcion: 'DOMINGO MARTINEZ DE IRALA', departamento: 11 },
     { codigo: 144, descripcion: 'ÑACUNDAY', departamento: 11 },
     { codigo: 145, descripcion: 'CIUDAD DEL ESTE', departamento: 11 },
@@ -8629,7 +8629,7 @@ class ConstanteService {
     { codigo: 239, descripcion: 'SANTA FE DEL PARANA', departamento: 11 },
     { codigo: 240, descripcion: 'NUEVA ESPERANZA', departamento: 11 },
     { codigo: 269, descripcion: 'TAVAPY', departamento: 11 },
-    { codigo: 273, descripcion: 'DR. RAUL PEÑA', departamento: 11 },
+    { codigo: 273, descripcion: 'DR. RAUL PEÑA', departamento: 11 },*/
     { codigo: 152, descripcion: 'AREGUA', departamento: 12 },
     { codigo: 153, descripcion: 'CAPIATA', departamento: 12 },
     { codigo: 154, descripcion: 'FERNANDO DE LA MORA', departamento: 12 },
@@ -8652,48 +8652,48 @@ class ConstanteService {
     { codigo: 171, descripcion: 'PILAR', departamento: 13 },
     { codigo: 172, descripcion: 'ALBERDI', departamento: 13 },
     { codigo: 173, descripcion: 'CERRITO', departamento: 13 },
-    { codigo: 174, descripcion: 'DESMOCHADOS', departamento: 13 },
+   /* { codigo: 174, descripcion: 'DESMOCHADOS', departamento: 13 },
     { codigo: 175, descripcion: 'GUAZU CUA', departamento: 13 },
     { codigo: 176, descripcion: 'HUMAITA', departamento: 13 },
     { codigo: 177, descripcion: 'ISLA UMBU', departamento: 13 },
-    { codigo: 178, descripcion: 'LAURELES', departamento: 13 },
+    { codigo: 178, descripcion: 'LAURELES', departamento: 13 },*/
     { codigo: 179, descripcion: 'PASO DE PATRIA', departamento: 13 },
-    { codigo: 180, descripcion: 'MAYOR J.D.MARTINEZ', departamento: 13 },
+    /*{ codigo: 180, descripcion: 'MAYOR J.D.MARTINEZ', departamento: 13 },*/
     { codigo: 181, descripcion: 'SAN JUAN DE ÑEEMBUCU', departamento: 13 },
-    { codigo: 182, descripcion: 'TACUARAS', departamento: 13 },
+    /*{ codigo: 182, descripcion: 'TACUARAS', departamento: 13 },*/
     { codigo: 183, descripcion: 'VILLA OLIVA', departamento: 13 },
-    { codigo: 184, descripcion: 'VILLALBIN', departamento: 13 },
-    { codigo: 203, descripcion: 'GRAL.JOSE EDUVIGIS DIAZ', departamento: 13 },
+    /*{ codigo: 184, descripcion: 'VILLALBIN', departamento: 13 },
+    { codigo: 203, descripcion: 'GRAL.JOSE EDUVIGIS DIAZ', departamento: 13 },*/
     { codigo: 205, descripcion: 'VILLA FRANCA', departamento: 13 },
-    { codigo: 230, descripcion: 'VILLA FRANCA', departamento: 13 },
+    /*{ codigo: 230, descripcion: 'VILLA FRANCA', departamento: 13 },*/
     { codigo: 231, descripcion: 'VILLALBIN', departamento: 13 },
     { codigo: 185, descripcion: 'PEDRO JUAN CABALLERO', departamento: 14 },
-    { codigo: 186, descripcion: 'BELLA VISTA', departamento: 14 },
+    /*{ codigo: 186, descripcion: 'BELLA VISTA', departamento: 14 },
     { codigo: 187, descripcion: 'CAPITAN BADO', departamento: 14 },
     { codigo: 278, descripcion: 'KARAPAI', departamento: 14 },
-    { codigo: 279, descripcion: 'ZANJA PYTA', departamento: 14 },
+    { codigo: 279, descripcion: 'ZANJA PYTA', departamento: 14 },*/
     { codigo: 188, descripcion: 'VILLA HAYES', departamento: 15 },
     { codigo: 189, descripcion: 'BENJAMIN ACEVAL(MONTE SOCIEDAD', departamento: 15 },
-    { codigo: 190, descripcion: 'PTO.PINAZCO', departamento: 15 },
+    /*{ codigo: 190, descripcion: 'PTO.PINAZCO', departamento: 15 },*/
     { codigo: 191, descripcion: 'NANAWA', departamento: 15 },
     { codigo: 206, descripcion: 'POZO COLORADO', departamento: 15 },
     { codigo: 242, descripcion: 'JOSE FALCON', departamento: 15 },
-    { codigo: 261, descripcion: 'TTE. 1RO. IRALA FERNANDEZ', departamento: 15 },
-    { codigo: 264, descripcion: 'TENIENTE ESTEBAN MARTINEZ', departamento: 15 },
+    /*{ codigo: 261, descripcion: 'TTE. 1RO. IRALA FERNANDEZ', departamento: 15 },
+    { codigo: 264, descripcion: 'TENIENTE ESTEBAN MARTINEZ', departamento: 15 },*/
     { codigo: 287, descripcion: 'NUEVA ASUNCIÓN', departamento: 15 },
-    { codigo: 192, descripcion: 'MCAL.ESTIGARRIBIA', departamento: 16 },
+    /*{ codigo: 192, descripcion: 'MCAL.ESTIGARRIBIA', departamento: 16 },
     { codigo: 193, descripcion: 'BOQUERON', departamento: 16 },
     { codigo: 194, descripcion: 'PEDRO P.PEÑA', departamento: 16 },
     { codigo: 234, descripcion: 'GRAL. EUGENIO A. GARAY', departamento: 16 },
     { codigo: 259, descripcion: 'FILADELFIA', departamento: 16 },
-    { codigo: 260, descripcion: 'LOMA PLATA', departamento: 16 },
-    { codigo: 195, descripcion: 'FUERTE OLIMPO', departamento: 17 },
+    { codigo: 260, descripcion: 'LOMA PLATA', departamento: 16 },*/
+    /*{ codigo: 195, descripcion: 'FUERTE OLIMPO', departamento: 17 },
     { codigo: 196, descripcion: 'BAHIA NEGRA', departamento: 17 },
     { codigo: 218, descripcion: 'PUERTO CASADO', departamento: 17 },
     { codigo: 223, descripcion: 'PUERTO GUARANI', departamento: 17 },
     { codigo: 233, descripcion: 'MAYOR PABLO LAGERENZA', departamento: 17 },
-    { codigo: 266, descripcion: 'CARMELO PERALTA', departamento: 17 },
-    { codigo: 197, descripcion: 'SAN ISIDRO DEL CURUGUATY', departamento: 18 },
+    { codigo: 266, descripcion: 'CARMELO PERALTA', departamento: 17 },*/
+    /*{ codigo: 197, descripcion: 'SAN ISIDRO DEL CURUGUATY', departamento: 18 },
     { codigo: 198, descripcion: 'VILLA YGATIMI', departamento: 18 },
     { codigo: 199, descripcion: 'YPEJHU', departamento: 18 },
     { codigo: 200, descripcion: 'CORPUS CHRISTI', departamento: 18 },
@@ -8708,7 +8708,7 @@ class ConstanteService {
     { codigo: 274, descripcion: 'YBY PYTA', departamento: 18 },
     { codigo: 283, descripcion: 'MARACANA', departamento: 18 },
     { codigo: 284, descripcion: 'PUERTO ADELA', departamento: 18 },
-    { codigo: 289, descripcion: 'PUERTO ADELA', departamento: 18 },
+    { codigo: 289, descripcion: 'PUERTO ADELA', departamento: 18 },*/
   ];
 
   departamentos = [
