@@ -730,8 +730,7 @@ class JSonDeMainValidateService {
       this.errors.push(
         "Pais '" +
           data['cliente']['pais'] +
-          "' del Cliente en data.cliente.pais no encontrado. Valores: " +
-          constanteService.paises.map((a: any) => a.codigo + '-' + a.descripcion),
+          "' del Cliente en data.cliente.pais no encontrado."
       );
     }
 
@@ -744,11 +743,15 @@ class JSonDeMainValidateService {
     if (!data['cliente']['contribuyente'] && data['cliente']['tipoOperacion']) {
       //No es contribuyente
       //Obligatorio completar D210
-
       if (!data['cliente']['contribuyente'] && data['cliente']['tipoOperacion'] != 4) {
         if (!data['cliente']['documentoTipo']) {
           //Val.: 59
           this.errors.push('Debe informar el Tipo de Documento del Cliente en data.cliente.documentoTipo');
+        } else {
+          let documentoTipoDS = constanteService.tiposDocumentosReceptor.filter((tdr) => tdr.codigo === +data['cliente']['documentoTipo'])
+          if (documentoTipoDS.length <= 0) {
+            this.errors.push('Tipo de Documento del Cliente en data.cliente.documentoTipo no válido');
+          }
         }
 
         //Cuando el campo puede ser un número, y se admite el valor cero, mejor preguntar de ésta forma
@@ -771,6 +774,15 @@ class JSonDeMainValidateService {
         }
       }
     }
+
+    //Este es solo una validacion por si coloca un documentoTipo erróneo, independientemente asi tiene que tener o no el campo
+    if (data['cliente']['documentoTipo']) {
+      let documentoTipoDS = constanteService.tiposDocumentosReceptor.filter((tdr) => tdr.codigo === +data['cliente']['documentoTipo'])
+      if (documentoTipoDS.length <= 0) {
+        this.errors.push('Tipo de Documento del Cliente ' + data['cliente']['documentoTipo'] + ' en data.cliente.documentoTipo no válido');
+      }
+    }
+
 
     if (
       !data['cliente']['contribuyente'] &&
@@ -2013,6 +2025,28 @@ class JSonDeMainValidateService {
         );
       }
     }
+
+    //Nuevas validaciones
+    if (data['detalleTransporte'] && data['detalleTransporte']['paisDestino']) {
+      if (constanteService.paises.filter((pais: any) => pais.codigo === data['detalleTransporte']['paisDestino']).length == 0) {
+        this.errors.push(
+          "Pais '" +
+            data['detalleTransporte']['paisDestino'] +
+            "' en detalleTransporte.paisDestino no encontrado."
+        );
+      }
+    }
+
+    if (data['detalleTransporte'] && data['detalleTransporte']['transportista'] && data['detalleTransporte']['transportista']['pais']) {
+      if (constanteService.paises.filter((pais: any) => pais.codigo === data['detalleTransporte']['transportista']['pais']).length == 0) {
+        this.errors.push(
+          "Pais '" +
+            data['detalleTransporte']['transportista']['pais'] +
+            "' en detalleTransporte.transportista.pais no encontrado."
+        );
+      }
+    }
+
     if (data['tipoDocumento'] == 7) {
       if (!data['detalleTransporte']['inicioEstimadoTranslado']) {
         this.errors.push('Obligatorio informar data.transporte.inicioEstimadoTranslado. Formato yyyy-MM-dd');
@@ -2772,8 +2806,7 @@ class JSonDeMainValidateService {
         this.errors.push(
           "Pais '" +
             data['detalleTransporte']['transportista']['pais'] +
-            "' del Cliente en data.transporte.transportista.pais no encontrado. Valores: " +
-            constanteService.paises.map((a: any) => a.codigo + '-' + a.descripcion),
+            "' del Cliente en data.transporte.transportista.pais no encontrado."
         );
       }
     }
