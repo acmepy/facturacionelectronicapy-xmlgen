@@ -1,6 +1,6 @@
 {
   "name": "facturacionelectronicapy-xmlgen",
-  "version": "1.0.281-f.0",
+  "version": "1.0.281-f.1",
   "description": "API Node JS para generar el archivo XML del Documento electrónico exigido por SIFEN en base a JSON",
   "main": "dist/index.js",
   "scripts": {

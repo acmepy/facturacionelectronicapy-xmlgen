@@ -1,6 +1,7 @@
 import deService from './services/jsonDeMain.service';
 import eventoService from './services/jsonEventoMain.service';
 import { XmlgenConfig } from './services/type.interface.';
+import constanteService from './services/constants.service';
 
 class DE {
   generateXMLDE = (params: any, data: any, config?: XmlgenConfig): Promise<any> => {
@@ -133,6 +134,14 @@ class DE {
       return null;
     }
   };
+
+  getConstantes = (): any => {
+    return constanteService;
+  }
 }
 
 export default new DE();
+
+export function getConstantes() :any {
+  return constanteService;
+}
