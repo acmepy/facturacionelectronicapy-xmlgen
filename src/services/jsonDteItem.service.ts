@@ -29,6 +29,11 @@ class JSonDteItemService {
         if (item['ncm']) {
           gCamItem['dNCM'] = item['ncm'];
         }
+        //
+        if (item['dncp'] && item['dncp']['codigoGtinProducto']) {
+            gCamItem['dGtin'] = item['dncp']['codigoGtinProducto'];
+          }
+        //
 
         if (data['cliente']['tipoOperacion'] && data['cliente']['tipoOperacion'] === 3) {
           if (item['dncp'] && item['dncp']['codigoNivelGeneral']) {
