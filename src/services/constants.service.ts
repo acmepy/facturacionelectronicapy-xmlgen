@@ -1236,7 +1236,7 @@ class ConstanteService {
     },
     {
       codigo: 2,
-      descripcion: 'Venta al consumidor final',
+      descripcion: 'Venta al Consumidor final',
     },
     {
       codigo: 3,
